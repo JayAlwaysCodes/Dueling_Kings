@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dueling Kings</title>
+    <link rel="stylesheet" href="chessboard-1.0.0.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Ensure this file exists -->
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+
+</head>
+<body>
+    <h1>Dueling Kings</h1>
+
+    <!-- Player setup section -->
+    <div id="setup">
+        <label for="playerName">Enter your name:</label>
+        <input type="text" id="playerName" placeholder="Your Name">
+        <button id="singlePlayerBtn">Single Player</button>
+        <button id="multiPlayerBtn">Multiplayer</button>
+    </div>
+
+    <!-- Multiplayer Setup Popup -->
+    <div id="multiplayerPopup" style="display:none;">
+        <div>
+            <button id="loginConnectBtn">Login/Connect</button>
+        </div>
+    </div>
+
+    <!-- Create or Join Play Screen -->
+    <div id="createOrJoin" style="display:none;">
+        <h2>Choose an Option</h2>
+        <button id="createPlayOption">Create a Play</button>
+        <button id="joinPlayOption">Join a Play</button>
+    </div>
+
+    <!-- Create Play Form -->
+    <div id="createPlay" style="display:none;">
+        <h2>Create a Play</h2>
+        <label for="asset">Choose an asset:</label>
+        <input type="text" id="asset" placeholder="Asset">
+        <label for="amount">Choose an amount:</label>
+        <input type="number" id="amount" placeholder="Amount">
+        <button id="createPlayBtn">Create Play</button>
+    </div>
+
+    <div id="waitingRoom" style="display:none;">
+        <p>You are now in the waiting room.</p>
+        <!-- You might also want to show a list of available games or a countdown timer here -->
+    </div>
+
+    <!-- Join Play Form -->
+    <div id="joinPlay" style="display:none;">
+        <h2>Join a Play</h2>
+        <div id="playList"></div>
+    </div>
+
+
+    <!-- Game board and status -->
+    <div id="gameContainer" style="display:none;">
+        <div id="myBoard" style="width: 400px"></div>
+        <div id="stakeInfo" style="display:none;"></div>
+        <div id="gameResult" style="display:none;"></div>
+        <div id="stakeDisplay" style="display:none;">
+            <h3>Stake Information</h3>
+            <p id="stakedAsset">Asset: </p>
+            <p id="stakedAmount">Amount: </p>
+        </div>
+
+        <div id="stakeDisplay" style="display:none;">
+            <h3>Stake Information</h3>
+            <p id="stakedAsset">Asset: </p>
+            <p id="stakedAmount">Amount: </p>
+        </div>
+
+        <label>Status:</label>
+        <div id="status"></div>
+        
+        <label>FEN:</label>
+        <div id="fen"></div>
+        <label>PGN:</label>
+        <div id="pgn"></div>
+
+        <div id="controls">
+            <button id="restartGame">Restart Game</button>
+            <button id="exitGame">Exit Game</button>
+        </div>
+    </div>
+    <!-- <script src="node_modules/chess.js/dist/esm/chess.js"></script> Correct path to chess.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chess.js@1.0.0/dist/chess.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="chessboard-1.0.0.js"></script>
+    <script src="chessboard-1.0.0.min.js"></script>
+    <script type="module" src="script.js"></script> <!-- Ensure script.js exists and is correct -->
+</body>
+</html>
